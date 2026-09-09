@@ -1,86 +1,69 @@
 
 
-movies = {
-    "Inception": {
-        "Director": "Christopher Nolan",
-        "Year": 2010,
-        "Rating": 8.8
-    },
-    "Interstellar": {
-        "Director": "Christopher Nolan",
-        "Year": 2014,
-        "Rating": 8.6
-    },
-    "The Matrix": {
-        "Director": "The Wachowskis",
-        "Year": 1999,
-        "Rating": 8.7
-    }
+music = {
+    "Shake It Off": {"Singer": "Taylor Swift", "Genre": "Pop", "Rating": 9.8},
+    "Blinding Lights": {"Singer": "The Weeknd", "Genre": "Synthwave", "Rating": 9.7},
+    "Bad Guy": {"Singer": "Billie Eilish", "Genre": "Pop", "Rating": 9.2},
+    "Uptown Funk": {"Singer": "Bruno Mars", "Genre": "Funk", "Rating": 9.5},
+    "Shape of You": {"Singer": "Ed Sheeran", "Genre": "Pop", "Rating": 9.3},
+    "Humble": {"Singer": "Kendrick Lamar", "Genre": "Rap", "Rating": 9.6}
 }
 
-def view_all_movies():
-    print("\n=== All Movies ===")
-    for name, info in movies.items():
-        print(f"\nMovie: {name}")
-        print(f" Director: {info['Director']}")
-        print(f" Year: {info['Year']}")
-        print(f" Rating: {info['Rating']}")
-    print("====================\n")
-
-def search_movie():
-    name = input("Enter movie name to search: ")
-    if name in movies:
-        print("\nMovie Found!")
-        print(f" Director: {movies[name]['Director']}")
-        print(f" Year: {movies[name]['Year']}")
-        print(f"Rating: {movies[name]['Rating']}\n")
-    else:
-        print("Movie not found.\n")
-
-def update_rating():
-    name = input("Enter movie name to update rating: ")
-    if name in movies:
-        new_rating = float(input("Enter new rating: "))
-        movies[name]["Rating"] = new_rating
-        print("Rating updated successfully!\n")
-    else:
-        print("Movie not found.\n")
-
-def add_movie():
-    name = input("Enter new movie name: ")
-    director = input("Enter director: ")
-    year = int(input("Enter release year: "))
-    rating = float(input("Enter rating: "))
-
-    movies[name] = {
-        "Director": director,
-        "Year": year,
-        "Rating": rating
-    }
-
-    print("Movie added successfully!\n")
-
 while True:
-    print("========== Favorite Movies ==========")
-    print("1. View All Movies")
-    print("2. Search a Movie")
-    print("3. Update Movie Rating")
-    print("4. Add a New Movie")
+    print("========= Favorite Songs =========")
+    print("1. View All Songs")
+    print("2. Search a Song")
+    print("3. Update Song Rating")
+    print("4. Add a New Song")
     print("5. Exit")
-    print("====================================")
+    print("==================================")
 
     choice = input("Enter your choice: ")
 
+
     if choice == "1":
-        view_all_movies()
+        for title, info in music.items():
+            print(f"\nTitle: {title}")
+            print(f" Singer: {info['Singer']}")
+            print(f" Genre: {info['Genre']}")
+            print(f" Rating: {info['Rating']}")
+
+    
     elif choice == "2":
-        search_movie()
+        name = input("Enter song name: ")
+        if name in music:
+            print(f"\nTitle: {name}")
+            print(f" Singer: {music[name]['Singer']}")
+            print(f" Genre: {music[name]['Genre']}")
+            print(f" Rating: {music[name]['Rating']}")
+        else:
+            print("Song not found.")
+
+    
     elif choice == "3":
-        update_rating()
+        name = input("Enter song name to update: ")
+        if name in music:
+            new_rating = float(input("Enter new rating: "))
+            music[name]["Rating"] = new_rating
+            print("Rating updated!")
+        else:
+            print("Song not found.")
+
+    
     elif choice == "4":
-        add_movie()
+        title = input("Enter song title: ")
+        singer = input("Enter singer: ")
+        genre = input("Enter genre: ")
+        rating = float(input("Enter rating: "))
+        music[title] = {"Singer": singer, "Genre": genre, "Rating": rating}
+        print("Song added!")
+
+    
     elif choice == "5":
-        print("Exiting program...")
+        print("Goodbye!")
         break
+
     else:
-        print("Invalid choice. Try again.\n")
+        print("Invalid choice.")
+
+
