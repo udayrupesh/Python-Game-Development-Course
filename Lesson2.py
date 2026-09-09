@@ -64,8 +64,8 @@ while True:
 
             else:
                 cart[foodNo] = {
-                    "Food" : menu[foodNo]["Food"]
-                    "Price": menu[foodNo]["Price"]
+                    "Food" : menu[foodNo]["Food"],
+                    "Price": menu[foodNo]["Price"],
                     "Quantity" : quantity
                 
                 }
@@ -90,9 +90,9 @@ while True:
                 subtotal = cart[item]["Price"] * cart[item]["Quantity"]
 
                 print(
-                    cart[item]["Food"]
-                    "| Qty: ", cart[item]["Quantity"]
-                    "| Price: £" + str(cart[item]["Price"])
+                    cart[item]["Food"],
+                    "| Qty: ", cart[item]["Quantity"],
+                    "| Price: £" + str(cart[item]["Price"]),
                     "| Total: £" + str(subtotal)
                 )
 
@@ -136,9 +136,9 @@ while True:
                 subtotal = cart[item]["Price"] * cart[item]["Quantity"]
 
                 print(
-                    cart[item]["Food"]
+                    cart[item]["Food"],
                     "x",
-                    cart[item]["Quantity"]
+                    cart[item]["Quantity"],
                     "=£" + str(subtotal)
                 )
 
@@ -156,4 +156,16 @@ while True:
 
             print("Subtotal : £",total)
             print("GST (5%) : £", round(gst,2))
-            print
+            print("Discount : £" , round(discount, 2))
+            print("-" * 50)
+            print("Grand Total : £", round(final_amount,2))
+            print("=" * 50)
+
+            print("\nThank you for visiting Python Restaurant!")
+
+            break
+    elif choice == 5:
+        print("Thank you! Visit Again.")
+        break
+    else:
+        print("Invalid Choice!")
