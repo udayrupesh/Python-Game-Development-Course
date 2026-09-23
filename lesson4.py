@@ -24,7 +24,7 @@ BLACK = (0,0,0)
 
 def draw_rectangle(x,y,width,height,color):
     screen.draw.line((X(x),y), (X(x + width), y), color)
-    screen.draw.line((X(x),y), (X(x),y  + width), color)
+    screen.draw.line((X(x),y), (X(x),y  +height), color)
     screen.draw.line((X(x + width),y), (X(x + width), y + height), color)
     screen.draw.line((X(x),y + height), (X(x + width),y  + height), color)
 
